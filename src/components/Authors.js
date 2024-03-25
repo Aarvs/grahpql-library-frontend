@@ -5,7 +5,7 @@ import EditAuthor from './EditAuthor'
 const Authors = () => {
 
   const result = useQuery(ALL_AUTHORS)
-  console.log(result)
+  console.log(result.data)
 
   if(result.loading){
     return(
@@ -14,7 +14,7 @@ const Authors = () => {
   }
 
   const authors = result.data.allAuthors
-  // console.log(authors)
+  console.log(authors)
 
   return (
     <div>

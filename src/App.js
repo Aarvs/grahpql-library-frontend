@@ -2,6 +2,7 @@ import Authors from './components/Authors'
 import Books from './components/Books'
 import NewBook from './components/NewBook'
 import Login from './components/Login'
+import RecommendedBooks from './components/RecommendedBooks'
 import { Link, Route, Routes } from 'react-router-dom'
 
 
@@ -18,7 +19,7 @@ const App = () => {
         <Link to="/books" style={padding}><button>books</button></Link>
         <Link to="/add" style={padding}><button>add books</button></Link>
         <Link to="/login" style={padding}><button>login</button></Link>
-
+        <Link to="/recommendations" style={padding}><button>recommend</button></Link>
       </div>
 
       <Routes>
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/books' element={<Books/>}/>
         <Route path='/add' element={<NewBook/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/recommendations' element={<RecommendedBooks/>}/>
       </Routes>
     </div>
   )

@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client"
 
 export const ALL_AUTHORS = gql`
-  query {
+  query{
     allAuthors{
         name
         born
@@ -63,3 +63,16 @@ export const LOGIN = gql`
     }
   }
 `
+
+export const FILTER_RECOMMEND = gql`
+  query recommendedBooks{
+    allBooksByFavouriteGenre{
+      author{
+        name
+      }
+      title
+      published
+    }
+  }
+`
+
