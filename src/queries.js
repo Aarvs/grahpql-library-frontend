@@ -20,6 +20,7 @@ export const ALL_BOOKS = gql`
           born
         }
         published
+        genres
     }
   }
 `
@@ -33,7 +34,11 @@ export const ADD_BOOK = gql`
       genres: $genres
     ){
       title
-      author
+      author{
+        name,
+        born,
+        bookCount
+      }
       published
       genres
     }
@@ -63,6 +68,16 @@ export const LOGIN = gql`
     }
   }
 `
+
+// export const FILTER = gql`
+//   query filterBooksByGenres($genres: [String!]!){
+//     filterByGenres(
+//       genres: $genres
+//     ){
+//       [Book]!
+//     }
+//   }
+// `
 
 export const FILTER_RECOMMEND = gql`
   query recommendedBooks{

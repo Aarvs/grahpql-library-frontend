@@ -10,10 +10,19 @@ const NewBook = () => {
   const [genres, setGenres] = useState([])
 
   const [addedBook] = useMutation(ADD_BOOK, {
-    refetchQueries: [{query: ALL_BOOKS}, {query: ALL_AUTHORS}],
+    // refetchQueries: [{query: ALL_BOOKS}, {query: ALL_AUTHORS}],
     onError: (error) => {
       const message = error.graphQLErrors.map(e => e.message).join('\n')
       console.log(message)
+    },
+    update: (cache, response)=> {
+      cache.updateQuery({query: ALL_BOOKS}, ({allBooks}) => {
+        return{
+          allBooks: allBooks.concat(response.data.addBook),
+        }
+      })
+
+      cache.updateQuery({query: ALL_AUTHORS})
     }
   })
 
