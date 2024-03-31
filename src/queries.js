@@ -79,6 +79,21 @@ export const LOGIN = gql`
 //   }
 // `
 
+export const BOOK_ADDED =   gql`
+  subscription {
+    bookAdded{
+      author{
+        name
+        bookCount
+        born
+      }
+      title
+      published
+      genres
+    }
+  }
+`
+
 export const FILTER_RECOMMEND = gql`
   query recommendedBooks{
     allBooksByFavouriteGenre{
